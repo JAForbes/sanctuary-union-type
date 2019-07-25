@@ -1,8 +1,8 @@
 {
   "name": "sum-type",
-  "version": "0.11.1",
+  "version": "1.0.0-rc6",
   "description": "Descendant of paldepind/union-type with more descriptive error messages",
-  "main": "index.js",
+  "main": "lib/simple.js",
   "module": "lib/index.js",
   "jsnext:main": "lib/index.js",
   "scripts": {
@@ -13,9 +13,7 @@
     "test:test": "istanbul cover test/test.js",
     "test:coverage": "istanbul check-coverage --statements 100 --functions 100 --lines 100 --branches 100",
     "test:lint": "eslint --max-warnings 0 -c .eslintrc lib/index.js test",
-    "dist": "run-s dist:**",
-    "dist:index": "browserify index.js --standalone SumType | uglifyjs -mc > index.min.js",
-    "dist:all": "browserify all.js --standalone SumType | uglifyjs -mc > all.min.js"
+    "dist": "browserify lib/simple.js --standalone SumType -p tinyify > sumtype.min.js"
   },
   "repository": {
     "type": "git",
@@ -32,13 +30,15 @@
     "npm-run-all": "^4.0.2",
     "sanctuary": "^0.12.2",
     "sanctuary-def": "^0.9.0",
+    "static-sum-type": "^0.11.0",
     "tape": "^4.6.2",
+    "tinyify": "^2.3.0",
     "uglify-js": "^2.8.22"
   },
   "peerDependencies": {
     "sanctuary-def": "^0.9.0"
   },
   "dependencies": {
-    "ramda": "^0.22.1"
+    "ramda": "^0.25.0"
   }
 }
